@@ -13,13 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareAMeal">
         <activity
-            android:name=".presentation.MealsPage"
+            android:name=".presentation.LoginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.MealsPage"
+            android:exported="false">
         </activity>
     </application>
 

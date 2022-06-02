@@ -14,6 +14,7 @@ import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
 import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHolder> {

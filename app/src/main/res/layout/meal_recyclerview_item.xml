@@ -23,9 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:text="Mealname"
             android:textColor="@color/black"
-            android:textSize="19sp"
-            android:text="Mealname"/>
+            android:textSize="19sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -37,18 +37,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:text="date"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                android:text="date"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/cook_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:text="city"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                android:text="city"/>
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -58,9 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:text="price"
             android:textColor="@color/black"
-            android:textSize="17sp"
-            android:text="price"/>
+            android:textSize="17sp" />
 
     </LinearLayout>
 
