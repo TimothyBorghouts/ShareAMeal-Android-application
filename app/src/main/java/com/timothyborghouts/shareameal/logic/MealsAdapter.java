@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
+import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHolder> {
@@ -37,6 +39,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
     public void onBindViewHolder(@NonNull MealsAdapter.MealViewHolder holder, int position) {
         Meal meal = this.meals.get(position);
 
+        Picasso.get().load(meals.get(position).getImageUrl()).into(holder.image);
         holder.title.setText(meal.getName());
         holder.date.setText(meal.getDateTime());
         holder.price.setText(meal.getPrice());
@@ -49,6 +52,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
     }
 
     class MealViewHolder extends RecyclerView.ViewHolder {
+        public ImageView image;
         public TextView title;
         public TextView date;
         public TextView price;
@@ -57,6 +61,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
         public MealViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            image = itemView.findViewById(R.id.meal_image);
             title = itemView.findViewById(R.id.meal_title);
             date = itemView.findViewById(R.id.meal_date);
             price = itemView.findViewById(R.id.meal_price);
