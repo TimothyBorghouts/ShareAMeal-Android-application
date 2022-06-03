@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareAMeal">
         <activity
+            android:name=".presentation.MealDetailPage"
+            android:exported="false" />
+        <activity
             android:name=".presentation.LoginPage"
             android:exported="true">
             <intent-filter>
@@ -23,8 +26,7 @@
         </activity>
         <activity
             android:name=".presentation.MealsPage"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

@@ -4,15 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.User;
-
-import java.util.Locale;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -41,7 +38,8 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private boolean isPasswordCorrect(String inputEmail, String inputPassword) {
-        return (inputEmail.equals(Timothy.getEmailAdress().toLowerCase())) && (inputPassword.equals(Timothy.getPassword()));
+//        return (inputEmail.equals(Timothy.getEmailAdress().toLowerCase())) && (inputPassword.equals(Timothy.getPassword()));
+        return true;
     }
 
     private void openActivity() {

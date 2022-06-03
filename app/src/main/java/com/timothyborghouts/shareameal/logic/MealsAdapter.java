@@ -1,6 +1,7 @@
 package com.timothyborghouts.shareameal.logic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,18 +15,17 @@ import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
 import com.squareup.picasso.Picasso;
+import com.timothyborghouts.shareameal.presentation.MealDetailPage;
 
 import java.util.ArrayList;
 
 public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHolder> {
 
     private ArrayList<Meal> meals;
-    private Context context;
     private LayoutInflater mInflater;
 
     public MealsAdapter(ArrayList<Meal> meals, Context context) {
         this.meals = meals;
-        this.context = context;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -42,9 +42,8 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
 
         Picasso.get().load(meals.get(position).getImageUrl()).into(holder.image);
         holder.title.setText(meal.getName());
-        holder.date.setText(meal.getDateTime());
+        holder.date.setText(meal.getDate());
         holder.price.setText(meal.getPrice());
-
     }
 
     @Override
@@ -52,21 +51,29 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
         return meals.size();
     }
 
-    class MealViewHolder extends RecyclerView.ViewHolder {
+    class MealViewHolder extends RecyclerView.ViewHolder{
         public ImageView image;
         public TextView title;
         public TextView date;
         public TextView price;
 
-
         public MealViewHolder(@NonNull View itemView) {
             super(itemView);
-
             image = itemView.findViewById(R.id.meal_image);
             title = itemView.findViewById(R.id.meal_title);
             date = itemView.findViewById(R.id.meal_date);
             price = itemView.findViewById(R.id.meal_price);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), MealDetailPage.class);
+                    view.getContext().startActivity(intent);
+                }
+            });
+            {
+
+            }
         }
 
     }

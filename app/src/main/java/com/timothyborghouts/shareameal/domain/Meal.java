@@ -51,7 +51,7 @@ public class Meal {
         return isToTakeHome;
     }
 
-    public String getDateTime() {
+    public String getDate() {
         return dateTime;
     }
 
@@ -69,6 +69,10 @@ public class Meal {
 
     public String[] getAllergies() {
         return allergies;
+    }
+
+    public String getMeal() {
+        return name + "," + description + "," + isActive + "," + isVega + "," + isVegan + "," + isToTakeHome + "," + dateTime + "," + maxAmountParticipants + "," + price + "," + imageUrl + "," + allergies;
     }
 
 }
