@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareAMeal">
         <activity
+            android:name=".presentation.SettingsPage"
+            android:exported="false" />
+        <activity
             android:name=".presentation.MealDetailPage"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
         </activity>
         <activity
             android:name=".presentation.MealsPage"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

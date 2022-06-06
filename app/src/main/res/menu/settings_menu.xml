@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/dark_mode"
-        android:title="Dark mode"
-        android:icon="@drawable/icon_dark_mode"
+        android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/icon_settings"
         app:showAsAction="always"
         />
 

@@ -4,14 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2145" />
+        <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/drawable/icon_dark_mode.xml" value="0.2145" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/drawable/icon_diner.xml" value="0.2145" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/drawable/icon_email.xml" value="0.2145" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/drawable/icon_lock.xml" value="0.2145" />
+        <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/drawable/icon_settings.xml" value="0.2145" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/layout/login_page.xml" value="0.35462962962962963" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/layout/meal_detail_page.xml" value="0.3625" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/layout/meal_recyclerview_item.xml" value="0.3625" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/layout/meals_page.xml" value="0.33" />
+        <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/layout/settings_page.xml" value="0.33" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/layout/titel_background.xml" value="0.3625" />
+        <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/menu/dark_mode_menu.xml" value="0.3625" />
         <entry key="..\:/Users/timot/AndroidStudioProjects/Shareameal/app/src/main/res/menu/darkmode_menu.xml" value="0.3625" />
       </map>
     </option>

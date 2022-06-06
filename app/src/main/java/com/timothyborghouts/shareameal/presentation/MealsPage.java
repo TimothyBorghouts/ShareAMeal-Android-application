@@ -2,16 +2,15 @@ package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
@@ -20,8 +19,6 @@ import com.timothyborghouts.shareameal.logic.MealsAdapter;
 import java.util.ArrayList;
 
 public class MealsPage extends AppCompatActivity {
-
-    boolean mDarkModeEnabled = false;
 
     ArrayList<Meal> meals;
     RecyclerView mealsRecyclerView;
@@ -59,32 +56,19 @@ public class MealsPage extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.dark_mode_menu,menu);
+        getMenuInflater().inflate(R.menu.settings_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
-
-            case R.id.dark_mode:
-
-                if(mDarkModeEnabled){
-                    mDarkModeEnabled = false;
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    Toast.makeText(this, "Set theme to light mode", Toast.LENGTH_SHORT).show();
-                }else{
-                    mDarkModeEnabled = true;
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    Toast.makeText(this, "Set theme to dark mode", Toast.LENGTH_SHORT).show();
-                }
-
+            case R.id.settings:
+                Intent intent = new Intent(MealsPage.this, SettingsPage.class);
+                startActivity(intent);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
-
     }
 
 }
