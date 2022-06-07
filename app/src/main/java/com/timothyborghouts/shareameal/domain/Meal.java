@@ -1,6 +1,8 @@
 package com.timothyborghouts.shareameal.domain;
 
-public class Meal {
+import java.io.Serializable;
+
+public class Meal implements Serializable {
     private String name;
     private String description;
     private boolean isActive;
@@ -69,10 +71,6 @@ public class Meal {
 
     public String[] getAllergies() {
         return allergies;
-    }
-
-    public String getMeal() {
-        return name + "," + description + "," + isActive + "," + isVega + "," + isVegan + "," + isToTakeHome + "," + dateTime + "," + maxAmountParticipants + "," + price + "," + imageUrl + "," + allergies;
     }
 
 }

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +17,6 @@ import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
 public class MealDetailPage extends AppCompatActivity {
-    Meal meal = new Meal("Frietjes", "Friet is geweldig ofzo", true, true, false, true, "02/06/2022", 4, "$3.69", "https://cdn.pixabay.com/photo/2016/11/21/15/52/french-fries-1846083_960_720.jpg", new String[]{"gluten", "lactose",});
 
     ImageView mealImage;
     TextView mealTitle;
@@ -24,9 +24,11 @@ public class MealDetailPage extends AppCompatActivity {
     TextView mealDescription;
     TextView mealDate;
     TextView mealAllergies;
-    CheckBox mealIsVega;
-    CheckBox mealIsVegan;
-    CheckBox mealIsToTakeHome;
+    ImageView mealIsVega;
+    ImageView mealIsVegan;
+    ImageView mealIsToTakeHome;
+
+    private Meal meal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,15 @@ public class MealDetailPage extends AppCompatActivity {
         mealDescription = findViewById(R.id.meal_description);
         mealDate = findViewById(R.id.meal_date);
         mealAllergies = findViewById(R.id.meal_allergies);
-        mealIsVega = findViewById(R.id.meal_is_vega);
-        mealIsVegan = findViewById(R.id.meal_is_vegan);
-        mealIsToTakeHome = findViewById(R.id.meal_is_to_take_home);
+        mealIsVega = findViewById(R.id.check_vega);
+        mealIsVegan = findViewById(R.id.check_vegan);
+        mealIsToTakeHome = findViewById(R.id.check_take_home);
 
-        String imageUri = "https://cdn.pixabay.com/photo/2016/11/21/15/52/french-fries-1846083_960_720.jpg";
-        Picasso.get().load(imageUri).into(mealImage);
+        meal = (Meal) getIntent().getSerializableExtra(MealsPage.clickedMeal);
+
+        String imageUrl = meal.getImageUrl();
+        Picasso.get().load(imageUrl).into(mealImage);
+
         mealTitle.setText(meal.getName());
         mealPrice.setText(meal.getPrice());
         mealDescription.setText(meal.getDescription());
@@ -57,9 +62,9 @@ public class MealDetailPage extends AppCompatActivity {
         }
 
         mealAllergies.setText(allergies);
-        mealIsVega.setChecked(meal.isVega());
-        mealIsVegan.setChecked(meal.isVegan());
-        mealIsToTakeHome.setChecked(meal.isToTakeHome());
+        if(meal.isVega()){mealIsVega.setVisibility(View.GONE);}
+        if(meal.isVegan()){mealIsVegan.setVisibility(View.GONE);}
+        if(meal.isToTakeHome()){mealIsToTakeHome.setVisibility(View.GONE);}
 
     }
 

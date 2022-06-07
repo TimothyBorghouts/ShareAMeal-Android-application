@@ -13,12 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareAMeal">
         <activity
-            android:name=".presentation.SettingsPage"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.MealDetailPage"
-            android:exported="false" />
-        <activity
             android:name=".presentation.LoginPage"
             android:exported="true">
             <intent-filter>
@@ -30,6 +24,14 @@
         <activity
             android:name=".presentation.MealsPage"
             android:exported="false" />
+        <activity
+            android:name=".presentation.MealDetailPage"
+            android:exported="false"
+            android:parentActivityName=".presentation.MealsPage"/>
+        <activity
+            android:name=".presentation.SettingsPage"
+            android:exported="false"
+            android:parentActivityName=".presentation.MealsPage"/>
     </application>
 
 </manifest>

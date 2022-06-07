@@ -2,6 +2,7 @@ package com.timothyborghouts.shareameal.logic;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +24,14 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
 
     private ArrayList<Meal> meals;
     private LayoutInflater mInflater;
+    private MealListener listener;
+    private Context context;
 
     public MealsAdapter(ArrayList<Meal> meals, Context context) {
-        this.meals = meals;
+        this.context = context;
+        this.listener = (MealListener) context;
         mInflater = LayoutInflater.from(context);
+        this.meals = meals;
     }
 
     @NonNull
@@ -51,7 +56,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
         return meals.size();
     }
 
-    class MealViewHolder extends RecyclerView.ViewHolder{
+    class MealViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
         public TextView title;
         public TextView date;
@@ -64,16 +69,17 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
             date = itemView.findViewById(R.id.meal_date);
             price = itemView.findViewById(R.id.meal_price);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(view.getContext(), MealDetailPage.class);
-                    view.getContext().startActivity(intent);
-                }
-            });
-            {
+            itemView.setOnClickListener(this::onClick);
+        }
 
-            }
+
+        public void onClick(View view){
+
+            int itemIndex = getLayoutPosition();
+
+            Meal meal = meals.get(itemIndex);
+
+            listener.goToDetailPage(meal);
         }
 
     }

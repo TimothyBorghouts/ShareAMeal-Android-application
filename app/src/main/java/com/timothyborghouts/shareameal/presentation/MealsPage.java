@@ -14,15 +14,18 @@ import android.view.MenuItem;
 
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
+import com.timothyborghouts.shareameal.logic.MealListener;
 import com.timothyborghouts.shareameal.logic.MealsAdapter;
 
 import java.util.ArrayList;
 
-public class MealsPage extends AppCompatActivity {
+public class MealsPage extends AppCompatActivity implements MealListener {
 
     ArrayList<Meal> meals;
     RecyclerView mealsRecyclerView;
     MealsAdapter mealsAdapter;
+
+    public static final String clickedMeal = "Meal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +71,14 @@ public class MealsPage extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToDetailPage(Meal meal){
+        Intent intent = new Intent(this, MealDetailPage.class);
+        intent.putExtra("Meal", meal);
+        startActivity(intent);
     }
 
 }
