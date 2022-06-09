@@ -45,7 +45,10 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
     public void onBindViewHolder(@NonNull MealsAdapter.MealViewHolder holder, int position) {
         Meal meal = this.meals.get(position);
 
-        Picasso.get().load(meals.get(position).getImageUrl()).into(holder.image);
+        try{
+            Picasso.get().load(meals.get(position).getImageUrl()).into(holder.image);
+        }catch(Exception e){
+        }
         holder.title.setText(meal.getName());
         holder.date.setText(meal.getDate());
         holder.price.setText(meal.getPrice());

@@ -23,6 +23,7 @@ public class MealDetailPage extends AppCompatActivity {
     TextView mealPrice;
     TextView mealDescription;
     TextView mealDate;
+    TextView mealAmountOfParticipants;
     TextView mealAllergies;
     ImageView mealIsVega;
     ImageView mealIsVegan;
@@ -40,6 +41,7 @@ public class MealDetailPage extends AppCompatActivity {
         mealPrice = findViewById(R.id.meal_price);
         mealDescription = findViewById(R.id.meal_description);
         mealDate = findViewById(R.id.meal_date);
+        mealAmountOfParticipants = findViewById(R.id.meal_max_amount_of_participants);
         mealAllergies = findViewById(R.id.meal_allergies);
         mealIsVega = findViewById(R.id.check_vega);
         mealIsVegan = findViewById(R.id.check_vegan);
@@ -54,17 +56,20 @@ public class MealDetailPage extends AppCompatActivity {
         mealPrice.setText(meal.getPrice());
         mealDescription.setText(meal.getDescription());
         mealDate.setText(meal.getDate());
+        String maxAmountOfParticipants = String.valueOf(meal.getMaxAmountParticipants());
+        mealAmountOfParticipants.setText("Max amount of people: " + maxAmountOfParticipants);
 
-        String allergies = "Allergies: ";
-        String[] allergiesArray = meal.getAllergies();
-        for(String allergie: allergiesArray){
-            allergies = allergies + " " + allergie;
-        }
+            String allergies = "Allergies: ";
+            String[] allergiesArray = meal.getAllergies();
+            for(String allergie: allergiesArray){
+                allergies = allergies + " " + allergie;
+            }
+            mealAllergies.setText(allergies);
 
-        mealAllergies.setText(allergies);
-        if(meal.isVega()){mealIsVega.setVisibility(View.GONE);}
-        if(meal.isVegan()){mealIsVegan.setVisibility(View.GONE);}
-        if(meal.isToTakeHome()){mealIsToTakeHome.setVisibility(View.GONE);}
+
+        if(!meal.isVega()){mealIsVega.setVisibility(View.GONE);}
+        if(!meal.isVegan()){mealIsVegan.setVisibility(View.GONE);}
+        if(!meal.isToTakeHome()){mealIsToTakeHome.setVisibility(View.GONE);}
 
     }
 

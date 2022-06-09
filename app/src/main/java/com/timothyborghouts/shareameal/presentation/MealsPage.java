@@ -11,6 +11,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
@@ -32,20 +34,34 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meals_page);
 
-        //Create meals to use in recyclerview
+        //If there are local meals created add them to the list
         this.meals = fillListWithMeals();
 
+        //If meals were added with create page add them to the list
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            Meal addedMeal = (Meal) getIntent().getSerializableExtra("Meal");
+            this.meals.add(addedMeal);
+        }
+
+        //Create Recyclerview with layout and meals.
         mealsRecyclerView = findViewById(R.id.meal_recyclerview);
         mealsAdapter = new MealsAdapter(meals, this);
 
         mealsRecyclerView.setAdapter(mealsAdapter);
-
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             mealsRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         }else {
             mealsRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         }
 
+        printItemCount();
+    }
+
+    public void printItemCount(){
+        Toast toast = Toast.makeText(getApplicationContext(), "Loaded " + mealsAdapter.getItemCount() + " meals", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     private ArrayList<Meal> fillListWithMeals() {
@@ -81,4 +97,8 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         startActivity(intent);
     }
 
+    public void goToCreateMealPage(View view) {
+        Intent intent = new Intent(this, CreateMealPage.class);
+        startActivity(intent);
+    }
 }
