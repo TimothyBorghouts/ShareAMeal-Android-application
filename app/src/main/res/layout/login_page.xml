@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".presentation.LoginPage">
@@ -13,9 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="150sp"
         android:padding="10dp"
-        android:textAlignment="center"
-        android:textColor="@color/light_blue"
         android:text="Share a meal"
+        android:textAlignment="center"
+        android:textColor="@color/primaryColor"
         android:textSize="40dp"
         android:textStyle="bold" />
 
@@ -24,24 +25,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
+        android:backgroundTint="@color/textColor"
         android:drawableStart="@drawable/icon_email"
         android:drawablePadding="10dp"
         android:ems="12"
         android:hint="Email"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/textColor" />
 
     <EditText
         android:id="@+id/passwordInputField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60sp"
+        android:backgroundTint="@color/textColor"
         android:drawableStart="@drawable/icon_lock"
         android:drawablePadding="10dp"
         android:ems="12"
         android:hint="Password"
         android:importantForAutofill="no"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColorHint="@color/textColor" />
 
     <Button
         android:id="@+id/loginButton"
@@ -49,7 +54,7 @@
         android:layout_height="wrap_content"
         android:width="250dp"
         android:height="55dp"
-        android:background="@color/light_blue"
+        android:background="@color/primaryColor"
         android:onClick="login"
         android:text="Login"
         android:textColor="@color/white" />

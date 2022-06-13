@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".presentation.MealsPage">
@@ -15,12 +16,12 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_marginTop="-250px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/light_blue"
+        android:layout_marginTop="-250px"
         android:clickable="true"
         android:onClick="goToCreateMealPage"
+        app:backgroundTint="@color/primaryColor"
         app:srcCompat="@drawable/icon_add" />
 
 </LinearLayout>

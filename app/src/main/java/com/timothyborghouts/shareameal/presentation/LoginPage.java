@@ -22,8 +22,6 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
-        setDarkMode();
     }
 
     public void login(View view) {
@@ -42,18 +40,8 @@ public class LoginPage extends AppCompatActivity {
 
     }
 
-    public void setDarkMode(){
-        Boolean isDarkModeAlreadyOn = sharedPreferences.getBoolean("isDarkModeOn", false);
-        if(isDarkModeAlreadyOn){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
-    }
-
     private boolean isPasswordCorrect(String inputEmail, String inputPassword) {
-//        return (inputEmail.equals(Timothy.getEmailAdress().toLowerCase())) && (inputPassword.equals(Timothy.getPassword()));
-        return true;
+        return (inputEmail.equals(Timothy.getEmailAdress().toLowerCase())) && (inputPassword.equals(Timothy.getPassword()));
     }
 
     private void openActivity() {

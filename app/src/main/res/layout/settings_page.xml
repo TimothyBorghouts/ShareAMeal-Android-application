@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.SettingsPage"
-    android:padding="70dp">
+    android:background="@color/backgroundColor"
+    android:padding="70dp"
+    tools:context=".presentation.SettingsPage">
 
     <CheckBox
         android:id="@+id/dark_mode_checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dark mode"
+        android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +24,7 @@
         android:layout_height="wrap_content"
         android:width="250dp"
         android:height="55dp"
-        android:background="@color/light_blue"
+        android:background="@color/primaryColor"
         android:text="Save settings"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
