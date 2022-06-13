@@ -8,7 +8,7 @@
     android:padding="70dp">
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/dark_mode_checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dark mode"
@@ -23,12 +23,10 @@
         android:width="250dp"
         android:height="55dp"
         android:background="@color/light_blue"
-        android:onClick="saveSettings"
         android:text="Save settings"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

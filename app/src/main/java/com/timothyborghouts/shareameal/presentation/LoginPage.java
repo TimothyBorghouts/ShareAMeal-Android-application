@@ -1,8 +1,10 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,12 +15,15 @@ import com.timothyborghouts.shareameal.domain.User;
 
 public class LoginPage extends AppCompatActivity {
 
-    User Timothy = new User("Timothy", "Borghouts", "Langdonk 31", "Breda", true, "Timothy.borghouts2@gmail.com", "#Suckdick2", "0681391266");
+    SharedPreferences sharedPreferences;
+    User Timothy = new User("Timothy", "Borghouts", "Langdonk 31", "Breda", true, "ja", "nee", "0681391266");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
+        setDarkMode();
     }
 
     public void login(View view) {
@@ -35,6 +40,15 @@ public class LoginPage extends AppCompatActivity {
             Toast.makeText(this, "Email or password is incorrect", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void setDarkMode(){
+        Boolean isDarkModeAlreadyOn = sharedPreferences.getBoolean("isDarkModeOn", false);
+        if(isDarkModeAlreadyOn){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     private boolean isPasswordCorrect(String inputEmail, String inputPassword) {
