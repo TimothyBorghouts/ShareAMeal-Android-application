@@ -8,22 +8,10 @@
     android:padding="50dp"
     tools:context=".presentation.CreateMealPage">
 
-    <TextView
-        android:id="@+id/create_meal_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create your meal"
-        android:textColor="@color/textColor"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/meal_name_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:backgroundTint="@color/textColor"
         android:ems="12"
         android:hint="Name"
@@ -31,7 +19,7 @@
         android:textColorHint="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_meal_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/meal_price_input"

@@ -1,6 +1,7 @@
 package com.timothyborghouts.shareameal.domain;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 public class Meal implements Serializable {
     private String name;

@@ -20,6 +20,7 @@ import com.timothyborghouts.shareameal.logic.MealListener;
 import com.timothyborghouts.shareameal.logic.MealsAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MealsPage extends AppCompatActivity implements MealListener {
 
@@ -50,16 +51,16 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         mealsAdapter = new MealsAdapter(meals, this);
 
         mealsRecyclerView.setAdapter(mealsAdapter);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             mealsRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        }else {
+        } else {
             mealsRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         }
 
         printItemCount();
     }
 
-    public void printItemCount(){
+    public void printItemCount() {
         Toast toast = Toast.makeText(getApplicationContext(), "Loaded " + mealsAdapter.getItemCount() + " meals", Toast.LENGTH_SHORT);
         toast.show();
     }
@@ -75,7 +76,8 @@ public class MealsPage extends AppCompatActivity implements MealListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.settings_menu,menu);
+        getMenuInflater().inflate(R.menu.filter_menu, menu);
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -86,12 +88,27 @@ public class MealsPage extends AppCompatActivity implements MealListener {
                 Intent intent = new Intent(MealsPage.this, SettingsPage.class);
                 startActivity(intent);
                 break;
+
+            case R.id.filter_vega:
+                Toast filterVegaToast = Toast.makeText(getApplicationContext(), "Could not Filter all vega meals.", Toast.LENGTH_SHORT);
+                filterVegaToast.show();
+                break;
+
+            case R.id.filter_vegan:
+                Toast filterVeganToast = Toast.makeText(getApplicationContext(), "Could not Filter all vegan meals.", Toast.LENGTH_SHORT);
+                filterVeganToast.show();
+                break;
+
+            case R.id.filter_take_home:
+                Toast filterTakeHomeToast = Toast.makeText(getApplicationContext(), "Could not Filter all take home meals.", Toast.LENGTH_SHORT);
+                filterTakeHomeToast.show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToDetailPage(Meal meal){
+    public void goToDetailPage(Meal meal) {
         Intent intent = new Intent(this, MealDetailPage.class);
         intent.putExtra("Meal", meal);
         startActivity(intent);

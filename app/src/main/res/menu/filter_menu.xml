@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/filter"
+        android:title="Filter"
+        android:icon="@drawable/icon_filter"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/filter_vega"
+                android:title="Vega"
+                app:showAsAction="always"/>
+
+            <item
+                android:id="@+id/filter_vegan"
+                android:title="Vegan"
+                app:showAsAction="always"/>
+
+            <item
+                android:id="@+id/filter_take_home"
+                android:title="Take home"
+                app:showAsAction="always"/>
+        </menu>
+
+    </item>
+
+</menu>

@@ -23,7 +23,8 @@
         </activity>
         <activity
             android:name=".presentation.MealsPage"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Meals"/>
         <activity
             android:name=".presentation.MealDetailPage"
             android:exported="false"
@@ -31,11 +32,13 @@
         <activity
             android:name=".presentation.CreateMealPage"
             android:exported="false"
-            android:parentActivityName=".presentation.MealsPage" />
+            android:parentActivityName=".presentation.MealsPage"
+            android:label="Create meal"/>
         <activity
             android:name=".presentation.SettingsPage"
             android:exported="false"
-            android:parentActivityName=".presentation.MealsPage" />
+            android:parentActivityName=".presentation.MealsPage"
+            android:label="Settings"/>
     </application>
 
 </manifest>
