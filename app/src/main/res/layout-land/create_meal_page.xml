@@ -8,30 +8,18 @@
     android:padding="50dp"
     tools:context=".presentation.CreateMealPage">
 
-    <TextView
-        android:id="@+id/create_meal_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create your meal"
-        android:textColor="@color/textColor"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/meal_name_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:backgroundTint="@color/textColor"
         android:ems="12"
         android:hint="Name"
         android:inputType="textPersonName"
         android:textColorHint="@color/textColor"
+        app:layout_constraintBottom_toTopOf="@+id/meal_price_input"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_meal_title" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/meal_price_input"
@@ -42,9 +30,9 @@
         android:hint="Price"
         android:inputType="textPersonName"
         android:textColorHint="@color/textColor"
+        app:layout_constraintBottom_toTopOf="@+id/meal_date_input"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_name_input" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/meal_date_input"
@@ -55,9 +43,10 @@
         android:hint="Date"
         android:inputType="textPersonName"
         android:textColorHint="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_price_input" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/meal_description_input"
@@ -89,12 +78,10 @@
         android:id="@+id/vega_checkbox_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
         android:text="Vega"
         android:textColor="@color/textColor"
-        app:layout_constraintBottom_toTopOf="@+id/createMealButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_image_url_input" />
+        app:layout_constraintBottom_toTopOf="@+id/vegan_checkbox_input"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/vegan_checkbox_input"
@@ -102,8 +89,8 @@
         android:layout_height="wrap_content"
         android:text="vegan"
         android:textColor="@color/textColor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vega_checkbox_input" />
+        app:layout_constraintBottom_toTopOf="@+id/take_home_checkbox_input"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/take_home_checkbox_input"
@@ -111,19 +98,20 @@
         android:layout_height="wrap_content"
         android:text="Take home"
         android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vegan_checkbox_input" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/max_amount_of_participants_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="30dp"
         android:text="People:"
         android:textColor="@color/textColor"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/max_amount_of_participants_spinner"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/take_home_checkbox_input" />
 
     <Spinner
         android:id="@+id/max_amount_of_participants_spinner"
@@ -131,16 +119,14 @@
         android:layout_height="wrap_content"
         android:entries="@array/size_values"
         android:textColor="@color/textColor"
-        app:layout_constraintBottom_toBottomOf="@+id/vegan_checkbox_input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/vegan_checkbox_input" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/max_amount_of_participants_text" />
 
     <Button
         android:id="@+id/createMealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="250dp"
+        android:width="150dp"
         android:height="55dp"
         android:background="@drawable/button_background"
         android:backgroundTint="@color/primaryColor"
@@ -149,6 +135,6 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
