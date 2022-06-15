@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,8 @@ import java.util.Collections;
 
 public class MealsPage extends AppCompatActivity implements MealListener {
 
+    private static final String TAG = "MealsPage";
+
     ArrayList<Meal> meals;
     RecyclerView mealsRecyclerView;
     MealsAdapter mealsAdapter;
@@ -34,11 +37,14 @@ public class MealsPage extends AppCompatActivity implements MealListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meals_page);
+        Log.i(TAG, "onCreate (Start Activity)");
 
         //If there are local meals created add them to the list
+        Log.d(TAG, "Used test data and filled list with meals");
         this.meals = fillListWithMeals();
 
         //If meals were added with create page add them to the list
+        Log.d(TAG, "Check if a meal was added");
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
@@ -47,6 +53,7 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         }
 
         //Create Recyclerview with layout and meals.
+        Log.d(TAG, "Create recyclerview");
         mealsRecyclerView = findViewById(R.id.meal_recyclerview);
         mealsAdapter = new MealsAdapter(meals, this);
 
@@ -57,6 +64,7 @@ public class MealsPage extends AppCompatActivity implements MealListener {
             mealsRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         }
 
+        Log.d(TAG, "Toast the amount of meals loaded");
         printItemCount();
     }
 
@@ -76,6 +84,7 @@ public class MealsPage extends AppCompatActivity implements MealListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "Creating menu");
         getMenuInflater().inflate(R.menu.filter_menu, menu);
         getMenuInflater().inflate(R.menu.settings_menu, menu);
         return super.onCreateOptionsMenu(menu);
@@ -85,21 +94,25 @@ public class MealsPage extends AppCompatActivity implements MealListener {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
+                Log.d(TAG, "Menu/Settings Go to SettingsPage");
                 Intent intent = new Intent(MealsPage.this, SettingsPage.class);
                 startActivity(intent);
                 break;
 
             case R.id.filter_vega:
+                Log.d(TAG, "Menu/Vega Only a toast displays");
                 Toast filterVegaToast = Toast.makeText(getApplicationContext(), "Could not Filter all vega meals.", Toast.LENGTH_SHORT);
                 filterVegaToast.show();
                 break;
 
             case R.id.filter_vegan:
+                Log.d(TAG, "Menu/Vegan Only a toast displays");
                 Toast filterVeganToast = Toast.makeText(getApplicationContext(), "Could not Filter all vegan meals.", Toast.LENGTH_SHORT);
                 filterVeganToast.show();
                 break;
 
             case R.id.filter_take_home:
+                Log.d(TAG, "Menu/Take home Only a toast displays");
                 Toast filterTakeHomeToast = Toast.makeText(getApplicationContext(), "Could not Filter all take home meals.", Toast.LENGTH_SHORT);
                 filterTakeHomeToast.show();
                 break;
@@ -109,12 +122,14 @@ public class MealsPage extends AppCompatActivity implements MealListener {
     }
 
     public void goToDetailPage(Meal meal) {
+        Log.d(TAG, "Go to the DetailPage (Close activity)");
         Intent intent = new Intent(this, MealDetailPage.class);
         intent.putExtra("Meal", meal);
         startActivity(intent);
     }
 
     public void goToCreateMealPage(View view) {
+        Log.d(TAG, "Go to the CreateMealPage (Close activity)");
         Intent intent = new Intent(this, CreateMealPage.class);
         startActivity(intent);
     }

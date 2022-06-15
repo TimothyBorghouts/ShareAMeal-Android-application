@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
 public class MealDetailPage extends AppCompatActivity {
+
+    private static final String TAG = "MealDetailPage";
 
     ImageView mealImage;
     TextView mealTitle;
@@ -35,6 +38,7 @@ public class MealDetailPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meal_detail_page);
+        Log.i(TAG, "onCreate (Start Activity)");
 
         mealImage = findViewById(R.id.meal_image);
         mealTitle = findViewById(R.id.meal_title);
@@ -47,8 +51,10 @@ public class MealDetailPage extends AppCompatActivity {
         mealIsVegan = findViewById(R.id.check_vegan);
         mealIsToTakeHome = findViewById(R.id.check_take_home);
 
+        Log.d(TAG, "Get the Intent extra with meal");
         meal = (Meal) getIntent().getSerializableExtra(MealsPage.clickedMeal);
 
+        Log.d(TAG, "Place the meal information in all the page components");
         String imageUrl = meal.getImageUrl();
         Picasso.get().load(imageUrl).into(mealImage);
 
@@ -83,6 +89,7 @@ public class MealDetailPage extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
+                Log.d(TAG, "Go to SettingsPage with settings menu (Close activity)");
                 Intent intent = new Intent(MealDetailPage.this, SettingsPage.class);
                 startActivity(intent);
                 break;

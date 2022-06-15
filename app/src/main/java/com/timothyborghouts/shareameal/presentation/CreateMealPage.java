@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,15 +19,18 @@ import com.timothyborghouts.shareameal.domain.Meal;
 
 public class CreateMealPage extends AppCompatActivity {
 
+    private static final String TAG = "CreateMealPage";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_meal_page);
-
+        Log.i(TAG, "onCreate (Start Activity)");
     }
 
     public void createMeal(View view) {
-
+        Log.d(TAG, "Pressed create meal button");
+        Log.d(TAG, "Getting all the input from the fields");
         //Get all the input fields and checkboxes.
         EditText nameInputField = findViewById(R.id.meal_name_input);
         EditText priceInputField = findViewById(R.id.meal_price_input);
@@ -38,6 +42,7 @@ public class CreateMealPage extends AppCompatActivity {
         CheckBox takeHomeCheckbox = findViewById(R.id.take_home_checkbox_input);
         Spinner maxAmountParticipants = findViewById(R.id.max_amount_of_participants_spinner);
 
+        Log.d(TAG, "Retrieving all the input from the fields");
         //Retrieve all the input from the input fields and checkboxes.
         String name = nameInputField.getText().toString();
         String description = descriptionInputField.getText().toString();
@@ -56,6 +61,7 @@ public class CreateMealPage extends AppCompatActivity {
 
         String[] allergies = {""};
 
+        Log.d(TAG, "Creating meal object with all the input");
         //Use all the retrieved atributes and put them in a meal object.
         Meal meal = new Meal(name, description, active, vega, vegan, takeHome, date, maxAmountOfParticipants, price, imageurl, allergies);
 
@@ -72,6 +78,7 @@ public class CreateMealPage extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "Go back to the meals page and send the meal with it. (Close activity)");
         getMenuInflater().inflate(R.menu.settings_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -80,6 +87,7 @@ public class CreateMealPage extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
+                Log.d(TAG, "Go to SettingsPage (Close activity)");
                 Intent intent = new Intent(CreateMealPage.this, SettingsPage.class);
                 startActivity(intent);
                 break;

@@ -23,6 +23,8 @@ import java.util.ArrayList;
 
 public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHolder> {
 
+    private static final String TAG = "RecyclerView";
+
     private ArrayList<Meal> meals;
     private LayoutInflater mInflater;
     private MealListener listener;
@@ -39,6 +41,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
     @Override
     public MealsAdapter.MealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.meal_recyclerview_item, parent, false);
+        Log.i(TAG, "onCreateViewHolder (Start RecyclerView)");
         return new MealViewHolder(itemView);
     }
 
@@ -57,6 +60,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
 
     @Override
     public int getItemCount() {
+        Log.d(TAG, "retrieving ItemCount");
         return meals.size();
     }
 
@@ -78,7 +82,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
 
 
         public void onClick(View view){
-
+            Log.d(TAG, "Clicked on a meal and going to that specific meal detail page");
             int itemIndex = getLayoutPosition();
 
             Meal meal = meals.get(itemIndex);
