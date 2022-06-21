@@ -14,10 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="150sp"
         android:padding="10dp"
-        android:text="Share a meal"
+        android:text="@string/login_welcome_title"
         android:textAlignment="center"
         android:textColor="@color/primaryColor"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <EditText
@@ -29,7 +29,7 @@
         android:drawableStart="@drawable/icon_email"
         android:drawablePadding="10dp"
         android:ems="12"
-        android:hint="Email"
+        android:hint="@string/email_input_hint"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/textColor" />
@@ -43,7 +43,7 @@
         android:drawableStart="@drawable/icon_lock"
         android:drawablePadding="10dp"
         android:ems="12"
-        android:hint="Password"
+        android:hint="@string/password_input_hint"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:textColorHint="@color/textColor" />
@@ -56,8 +56,7 @@
         android:height="55dp"
         android:background="@drawable/button_background"
         android:backgroundTint="@color/primaryColor"
-        android:onClick="login"
-        android:text="Login"
+        android:text="@string/login_button_text"
         android:textColor="@color/white" />
 
 </LinearLayout>

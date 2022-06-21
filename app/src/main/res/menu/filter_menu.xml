@@ -11,17 +11,17 @@
         <menu>
             <item
                 android:id="@+id/filter_vega"
-                android:title="Vega"
+                android:title="@string/vega_text"
                 app:showAsAction="always"/>
 
             <item
                 android:id="@+id/filter_vegan"
-                android:title="Vegan"
+                android:title="@string/vegan_text"
                 app:showAsAction="always"/>
 
             <item
                 android:id="@+id/filter_take_home"
-                android:title="Take home"
+                android:title="@string/take_home_text"
                 app:showAsAction="always"/>
         </menu>
 

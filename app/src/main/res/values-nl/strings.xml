@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Share a meal</string>
+    <!--Strings from the login page-->
+    <string name="login_page_label">Share a meal</string>
+    <string name="login_welcome_title">Welkom bij\nShare a meal</string>
+    <string name="email_input_hint">Email</string>
+    <string name="password_input_hint">Wachtwoord</string>
+    <string name="login_button_text">Inloggen</string>
+    <!--Strings from the meal page-->
+    <string name="meals_page_label">Maaltijden</string>
+    <!--Strings from the create meal page-->
+    <string name="create_meal_page_label">Maaltijd toevoegen</string>
+    <string name="meal_name_input_hint">Naam</string>
+    <string name="meal_price_input_hint">Prijs</string>
+    <string name="meal_date_input_hint">Datum</string>
+    <string name="meal_description_input_hint">Beschrijving</string>
+    <string name="meal_image_ul_input_hint">Afbeelding link</string>
+    <string name="participants_text">Voor hoeveel mensen?</string>
+    <string name="create_meal_button_text">Toevoegen</string>
+    <!--Strings from the meal detail page-->
+    <string name="meal_detail_page_label">Maaltijd Details</string>
+    <!--Strings from the settings page-->
+    <string name="settings_page_label">Instellingen</string>
+    <string name="dark_mode_checkbox_text">Nacht modus</string>
+    <string name="language_english_text">Engels</string>
+    <string name="language_dutch_text">Nederlands</string>
+    <string name="save_settings_button_text">Opslaan</string>
+    <!--String voor het filter menu, create meal page en detail page-->
+    <string name="vega_text">Vegetarisch</string>
+    <string name="vegan_text">Veganistisch</string>
+    <string name="take_home_text">Meenemen</string>
+    <string name="max_amount_of_participants_text">Aantal personen:</string>
+    <string name="allergies_text">Allergieën:</string>
+
+</resources>

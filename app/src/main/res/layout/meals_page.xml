@@ -22,6 +22,7 @@
         android:clickable="true"
         android:onClick="goToCreateMealPage"
         app:backgroundTint="@color/primaryColor"
-        app:srcCompat="@drawable/icon_add" />
+        app:srcCompat="@drawable/icon_add"
+        android:focusable="true" />
 
 </LinearLayout>

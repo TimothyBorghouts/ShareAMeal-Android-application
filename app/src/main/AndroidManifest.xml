@@ -17,14 +17,12 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".presentation.MealsPage"
-            android:exported="false"
-            android:label="Meals"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.MealDetailPage"
             android:exported="false"
@@ -32,13 +30,11 @@
         <activity
             android:name=".presentation.CreateMealPage"
             android:exported="false"
-            android:parentActivityName=".presentation.MealsPage"
-            android:label="Create meal"/>
+            android:parentActivityName=".presentation.MealsPage" />
         <activity
             android:name=".presentation.SettingsPage"
             android:exported="false"
-            android:parentActivityName=".presentation.MealsPage"
-            android:label="Settings"/>
+            android:parentActivityName=".presentation.MealsPage" />
     </application>
 
 </manifest>

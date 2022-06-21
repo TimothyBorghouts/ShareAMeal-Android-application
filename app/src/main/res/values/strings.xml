@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">Share a meal</string>
+    <!--Strings from the login page-->
+    <string name="login_page_label">Share a meal</string>
+    <string name="login_welcome_title">Welcome to\nShare a meal</string>
+    <string name="email_input_hint">Email</string>
+    <string name="password_input_hint">Password</string>
+    <string name="login_button_text">Login</string>
+    <!--Strings from the meal page-->
+    <string name="meals_page_label">Meals</string>
+    <!--Strings from the create meal page-->
+    <string name="create_meal_page_label">Create meal</string>
+    <string name="meal_name_input_hint">Name</string>
+    <string name="meal_price_input_hint">Price</string>
+    <string name="meal_date_input_hint">Date</string>
+    <string name="meal_description_input_hint">Description</string>
+    <string name="meal_image_ul_input_hint">Image url</string>
+    <string name="participants_text">For how many people?</string>
+    <string name="create_meal_button_text">Create</string>
+    <!--Strings from the meal detail page-->
+    <string name="meal_detail_page_label">Meal Details</string>
+    <!--Strings from the settings page-->
+    <string name="settings_page_label">Settings</string>
+    <string name="dark_mode_checkbox_text">Dark mode</string>
+    <string name="language_english_text">English</string>
+    <string name="language_dutch_text">Dutch</string>
+    <string name="save_settings_button_text">Save settings</string>
+    <!--String voor het filter menu, create meal page en detail page-->
+    <string name="vega_text">Vega</string>
+    <string name="vegan_text">Vegan</string>
+    <string name="take_home_text">Take home</string>
+    <string name="max_amount_of_participants_text">Max people:</string>
+    <string name="allergies_text">Allergies:</string>
 </resources>

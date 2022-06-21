@@ -1,6 +1,7 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -40,6 +41,9 @@ public class MealDetailPage extends AppCompatActivity {
         setContentView(R.layout.meal_detail_page);
         Log.i(TAG, "onCreate (Start Activity)");
 
+        String actionBarTitle = getResources().getString(R.string.meal_detail_page_label);
+        getSupportActionBar().setTitle(actionBarTitle);
+
         mealImage = findViewById(R.id.meal_image);
         mealTitle = findViewById(R.id.meal_title);
         mealPrice = findViewById(R.id.meal_price);
@@ -63,9 +67,10 @@ public class MealDetailPage extends AppCompatActivity {
         mealDescription.setText(meal.getDescription());
         mealDate.setText(meal.getDate());
         String maxAmountOfParticipants = String.valueOf(meal.getMaxAmountParticipants());
-        mealAmountOfParticipants.setText("Max amount of people: " + maxAmountOfParticipants);
+        String maxPeopleText = getResources().getString(R.string.max_amount_of_participants_text);
+        mealAmountOfParticipants.setText(maxPeopleText + " " + maxAmountOfParticipants);
 
-            String allergies = "Allergies: ";
+            String allergies = getResources().getString(R.string.allergies_text);
             String[] allergiesArray = meal.getAllergies();
             for(String allergie: allergiesArray){
                 allergies = allergies + " " + allergie;

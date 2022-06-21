@@ -12,11 +12,25 @@
         android:id="@+id/dark_mode_checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dark mode"
+        android:text="@string/dark_mode_checkbox_text"
         android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/select_language_spinner"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:entries="@array/languages"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/save_settings_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dark_mode_checkBox"
+        app:layout_constraintVertical_bias="0.050" />
 
     <Button
         android:id="@+id/save_settings_button"
@@ -26,7 +40,7 @@
         android:height="55dp"
         android:background="@drawable/button_background"
         android:backgroundTint="@color/primaryColor"
-        android:text="Save settings"
+        android:text="@string/save_settings_button_text"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

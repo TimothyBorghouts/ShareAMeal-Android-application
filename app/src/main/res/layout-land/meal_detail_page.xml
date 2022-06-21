@@ -36,7 +36,6 @@
                     android:id="@+id/meal_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mealname"
                     android:textColor="@color/textColor"
                     android:textSize="25sp" />
 
@@ -45,7 +44,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:text="price"
                     android:textColor="@color/textColor"
                     android:textSize="20sp" />
 
@@ -57,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                android:text="Served on: date"
                 android:textColor="@color/textColor"
                 android:textSize="15sp" />
 
@@ -74,7 +71,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="description"
                 android:textColor="@color/textColor"
                 android:textSize="15sp" />
 
@@ -88,9 +84,9 @@
                     android:id="@+id/meal_is_vega"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vega"
+                    android:text="@string/vega_text"
                     android:textColor="@color/textColor"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <ImageView
                     android:id="@+id/check_vega"
@@ -104,9 +100,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:text="Vegan"
+                    android:text="@string/vegan_text"
                     android:textColor="@color/textColor"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <ImageView
                     android:id="@+id/check_vegan"
@@ -120,9 +116,9 @@
                     android:layout_marginStart="50dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Take home"
+                    android:text="@string/take_home_text"
                     android:textColor="@color/textColor"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <ImageView
                     android:id="@+id/check_take_home"

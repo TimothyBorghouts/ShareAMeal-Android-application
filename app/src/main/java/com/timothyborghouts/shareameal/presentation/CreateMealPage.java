@@ -1,8 +1,10 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +28,9 @@ public class CreateMealPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_meal_page);
         Log.i(TAG, "onCreate (Start Activity)");
+
+        String actionBarTitle = getResources().getString(R.string.create_meal_page_label);
+        getSupportActionBar().setTitle(actionBarTitle);
     }
 
     public void createMeal(View view) {

@@ -1,6 +1,7 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,6 +39,9 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meals_page);
         Log.i(TAG, "onCreate (Start Activity)");
+
+        String actionBarTitle = getResources().getString(R.string.meals_page_label);
+        getSupportActionBar().setTitle(actionBarTitle);
 
         //If there are local meals created add them to the list
         Log.d(TAG, "Used test data and filled list with meals");
