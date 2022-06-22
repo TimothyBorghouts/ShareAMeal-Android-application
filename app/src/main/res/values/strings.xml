@@ -25,7 +25,7 @@
     <string name="language_english_text">English</string>
     <string name="language_dutch_text">Dutch</string>
     <string name="save_settings_button_text">Save settings</string>
-    <!--String voor het filter menu, create meal page en detail page-->
+    <!--Strings from the filter menu, create meal page and detail page-->
     <string name="vega_text">Vega</string>
     <string name="vegan_text">Vegan</string>
     <string name="take_home_text">Take home</string>

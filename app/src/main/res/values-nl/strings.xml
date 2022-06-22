@@ -25,11 +25,10 @@
     <string name="language_english_text">Engels</string>
     <string name="language_dutch_text">Nederlands</string>
     <string name="save_settings_button_text">Opslaan</string>
-    <!--String voor het filter menu, create meal page en detail page-->
+    <!--Strings from the filter menu, create meal page and detail page-->
     <string name="vega_text">Vegetarisch</string>
     <string name="vegan_text">Veganistisch</string>
     <string name="take_home_text">Meenemen</string>
     <string name="max_amount_of_participants_text">Aantal personen:</string>
     <string name="allergies_text">Allergieën:</string>
-
 </resources>

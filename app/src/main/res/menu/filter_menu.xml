@@ -23,6 +23,10 @@
                 android:id="@+id/filter_take_home"
                 android:title="@string/take_home_text"
                 app:showAsAction="always"/>
+            <item
+                android:id="@+id/filter_remove"
+                android:title="Remove filter"
+                app:showAsAction="always"/>
         </menu>
 
     </item>

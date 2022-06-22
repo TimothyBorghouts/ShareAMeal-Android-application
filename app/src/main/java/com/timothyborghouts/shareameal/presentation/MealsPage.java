@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Movie;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,9 +29,13 @@ public class MealsPage extends AppCompatActivity implements MealListener {
 
     private static final String TAG = "MealsPage";
 
-    ArrayList<Meal> meals;
+    ArrayList<Meal> meals = new ArrayList<>();
+    ArrayList<Meal> filteredMeals = new ArrayList<>();
+    ArrayList<Meal> savedMeals = new ArrayList<>();
     RecyclerView mealsRecyclerView;
     MealsAdapter mealsAdapter;
+
+    boolean didFilterOnce = false;
 
     public static final String clickedMeal = "Meal";
 
@@ -46,6 +51,7 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         //If there are local meals created add them to the list
         Log.d(TAG, "Used test data and filled list with meals");
         this.meals = fillListWithMeals();
+        savedMeals.addAll(meals);
 
         //If meals were added with create page add them to the list
         Log.d(TAG, "Check if a meal was added");
@@ -81,7 +87,7 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         ArrayList<Meal> localMeals = new ArrayList<>();
         localMeals.add(new Meal("Frietjes", "Friet is geweldig ofzo", true, true, false, true, "02/06/2022", 4, "$3.69", "https://cdn.pixabay.com/photo/2016/11/21/15/52/french-fries-1846083_960_720.jpg", new String[]{"gluten", "lactose",}));
         localMeals.add(new Meal("Pizza", "Pizza is nog beter dan friet", true, true, false, true, "31/05/2022", 2, "$6.99", "https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg", new String[]{"gluten",}));
-        localMeals.add(new Meal("Pasta", "Pasta is toch wel favoriet", false, true, false, false, "01/06/2022", 3, "$2.00", "https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078_960_720.jpg", new String[]{"lactose", "ei",}));
+        localMeals.add(new Meal("Pasta", "Pasta is toch wel favoriet", true, true, true, false, "01/06/2022", 3, "$2.00", "https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078_960_720.jpg", new String[]{"lactose", "ei",}));
         localMeals.add(new Meal("Lasagna", "Lasagna is soms lekker maar niet altijd", true, false, false, true, "30/05/2022", 6, "$13.00", "https://cdn.pixabay.com/photo/2021/02/06/11/51/food-5987888_960_720.jpg", new String[]{"gluten, lactose", "ei"}));
         return localMeals;
     }
@@ -104,25 +110,66 @@ public class MealsPage extends AppCompatActivity implements MealListener {
                 break;
 
             case R.id.filter_vega:
-                Log.d(TAG, "Menu/Vega Only a toast displays");
-                Toast filterVegaToast = Toast.makeText(getApplicationContext(), "Could not Filter all vega meals.", Toast.LENGTH_SHORT);
-                filterVegaToast.show();
+                Log.d(TAG, "Filtering all meals on vega");
+                filterMeals(1);
+                mealsAdapter.notifyDataSetChanged();
+                printItemCount();
                 break;
 
             case R.id.filter_vegan:
-                Log.d(TAG, "Menu/Vegan Only a toast displays");
-                Toast filterVeganToast = Toast.makeText(getApplicationContext(), "Could not Filter all vegan meals.", Toast.LENGTH_SHORT);
-                filterVeganToast.show();
+                Log.d(TAG, "Filtering all meals on vegan");
+                filterMeals(2);
+                mealsAdapter.notifyDataSetChanged();
+                printItemCount();
                 break;
 
             case R.id.filter_take_home:
-                Log.d(TAG, "Menu/Take home Only a toast displays");
-                Toast filterTakeHomeToast = Toast.makeText(getApplicationContext(), "Could not Filter all take home meals.", Toast.LENGTH_SHORT);
-                filterTakeHomeToast.show();
+                Log.d(TAG, "Filtering all meals on take home");
+                filterMeals(3);
+                mealsAdapter.notifyDataSetChanged();
+                printItemCount();
+                break;
+            case R.id.filter_remove:
+                meals.clear();
+                meals.addAll(savedMeals);
+                Log.d(TAG, "Removed all filters.");
+                mealsAdapter.notifyDataSetChanged();
+                printItemCount();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void filterMeals(int filter){
+        for(Meal meal : meals) {
+            switch (filter) {
+                case 1:
+                    if(meal.isVega()){
+                        this.filteredMeals.add(meal);
+                    }
+                    break;
+
+                case 2:
+                    if(meal.isVegan()){
+                        this.filteredMeals.add(meal);
+                    }
+                    break;
+
+                case 3:
+                    if(meal.isToTakeHome()){
+                        this.filteredMeals.add(meal);
+                    }
+                    break;
+            }
+
+        }
+        meals.clear();
+        meals.addAll(filteredMeals);
+
+        didFilterOnce = true;
+
+        filteredMeals.clear();
     }
 
     public void goToDetailPage(Meal meal) {
