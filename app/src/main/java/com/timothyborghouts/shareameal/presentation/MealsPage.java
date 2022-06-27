@@ -1,7 +1,6 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Movie;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,7 +21,6 @@ import com.timothyborghouts.shareameal.logic.MealListener;
 import com.timothyborghouts.shareameal.logic.MealsAdapter;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MealsPage extends AppCompatActivity implements MealListener {
 
@@ -48,9 +45,7 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         String actionBarTitle = getResources().getString(R.string.meals_page_label);
         getSupportActionBar().setTitle(actionBarTitle);
 
-        //If there are local meals created add them to the list
-        Log.d(TAG, "Used test data and filled list with meals");
-        this.meals = fillListWithMeals();
+
         savedMeals.addAll(meals);
 
         //If meals were added with create page add them to the list
@@ -81,15 +76,6 @@ public class MealsPage extends AppCompatActivity implements MealListener {
     public void printItemCount() {
         Toast toast = Toast.makeText(getApplicationContext(), "Loaded " + mealsAdapter.getItemCount() + " meals", Toast.LENGTH_SHORT);
         toast.show();
-    }
-
-    private ArrayList<Meal> fillListWithMeals() {
-        ArrayList<Meal> localMeals = new ArrayList<>();
-        localMeals.add(new Meal("Frietjes", "Friet is geweldig ofzo", true, true, false, true, "02/06/2022", 4, "$3.69", "https://cdn.pixabay.com/photo/2016/11/21/15/52/french-fries-1846083_960_720.jpg", new String[]{"gluten", "lactose",}));
-        localMeals.add(new Meal("Pizza", "Pizza is nog beter dan friet", true, true, false, true, "31/05/2022", 2, "$6.99", "https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg", new String[]{"gluten",}));
-        localMeals.add(new Meal("Pasta", "Pasta is toch wel favoriet", true, true, true, false, "01/06/2022", 3, "$2.00", "https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078_960_720.jpg", new String[]{"lactose", "ei",}));
-        localMeals.add(new Meal("Lasagna", "Lasagna is soms lekker maar niet altijd", true, false, false, true, "30/05/2022", 6, "$13.00", "https://cdn.pixabay.com/photo/2021/02/06/11/51/food-5987888_960_720.jpg", new String[]{"gluten, lactose", "ei"}));
-        return localMeals;
     }
 
     @Override
