@@ -18,6 +18,8 @@ import com.squareup.picasso.Picasso;
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
+import java.util.ArrayList;
+
 public class MealDetailPage extends AppCompatActivity {
 
     private static final String TAG = "MealDetailPage";
@@ -66,12 +68,12 @@ public class MealDetailPage extends AppCompatActivity {
         mealPrice.setText(meal.getPrice());
         mealDescription.setText(meal.getDescription());
         mealDate.setText(meal.getDate());
-        String maxAmountOfParticipants = String.valueOf(meal.getMaxAmountParticipants());
+        String maxAmountOfParticipants = String.valueOf(meal.getMaxAmountOfParticipants());
         String maxPeopleText = getResources().getString(R.string.max_amount_of_participants_text);
         mealAmountOfParticipants.setText(maxPeopleText + " " + maxAmountOfParticipants);
 
             String allergies = getResources().getString(R.string.allergies_text);
-            String[] allergiesArray = meal.getAllergies();
+            ArrayList<String> allergiesArray = meal.getAllergies();
             for(String allergie: allergiesArray){
                 allergies = allergies + " " + allergie;
             }

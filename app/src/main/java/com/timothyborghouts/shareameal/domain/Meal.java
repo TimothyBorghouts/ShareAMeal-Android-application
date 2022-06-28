@@ -1,6 +1,7 @@
 package com.timothyborghouts.shareameal.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Meal implements Serializable {
@@ -11,12 +12,12 @@ public class Meal implements Serializable {
     private boolean isVegan;
     private boolean isToTakeHome;
     private String dateTime;
-    private int maxAmountParticipants;
+    private int maxAmountOfParticipants;
     private String price;
     private String imageUrl;
-    private String[] allergies;
+    private ArrayList<String> allergies = new ArrayList<>();
 
-    public Meal(String name, String description, boolean isActive, boolean isVega, boolean isVegan, boolean isToTakeHome, String dateTime, int maxAmountParticipants, String price, String imageUrl, String[] allergies) {
+    public Meal(String name, String description, boolean isActive, boolean isVega, boolean isVegan, boolean isToTakeHome, String dateTime, int maxAmountOfParticipants, String price, String imageUrl, ArrayList<String> allergies) {
         this.name = name;
         this.description = description;
         this.isActive = isActive;
@@ -24,7 +25,7 @@ public class Meal implements Serializable {
         this.isVegan = isVegan;
         this.isToTakeHome = isToTakeHome;
         this.dateTime = dateTime;
-        this.maxAmountParticipants = maxAmountParticipants;
+        this.maxAmountOfParticipants = maxAmountOfParticipants;
         this.price = price;
         this.imageUrl = imageUrl;
         this.allergies = allergies;
@@ -58,8 +59,8 @@ public class Meal implements Serializable {
         return dateTime;
     }
 
-    public int getMaxAmountParticipants() {
-        return maxAmountParticipants;
+    public int getMaxAmountOfParticipants() {
+        return maxAmountOfParticipants;
     }
 
     public String getPrice() {
@@ -70,7 +71,7 @@ public class Meal implements Serializable {
         return imageUrl;
     }
 
-    public String[] getAllergies() {
+    public ArrayList<String> getAllergies() {
         return allergies;
     }
 

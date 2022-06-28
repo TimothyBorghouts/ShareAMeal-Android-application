@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,7 +22,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.timothyborghouts.shareameal.R;
+import com.timothyborghouts.shareameal.data.FetchMealAsyncTask;
 import com.timothyborghouts.shareameal.domain.Meal;
+import com.timothyborghouts.shareameal.logic.DatasetListener;
 import com.timothyborghouts.shareameal.logic.MealListener;
 import com.timothyborghouts.shareameal.logic.MealsAdapter;
 
@@ -28,7 +33,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MealsPage extends AppCompatActivity implements MealListener {
+public class MealsPage extends AppCompatActivity implements MealListener, DatasetListener {
 
     private static final String TAG = "MealsPage";
 
@@ -51,6 +56,7 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         String actionBarTitle = getResources().getString(R.string.meals_page_label);
         getSupportActionBar().setTitle(actionBarTitle);
 
+         new FetchMealAsyncTask(this).execute();
 
         savedMeals.addAll(meals);
 
@@ -177,4 +183,15 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         startActivity(intent);
     }
 
+    @Override
+    public void addMeal(Meal meal) {
+        Log.d(TAG, "" + meal);
+        this.meals.add(meal);
+        this.savedMeals.addAll(meals);
+    }
+
+    @Override
+    public void datasetUpdated() {
+        this.mealsAdapter.notifyDataSetChanged();
+    }
 }

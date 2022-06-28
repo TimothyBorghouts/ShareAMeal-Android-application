@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
+import java.util.ArrayList;
+
 public class CreateMealPage extends AppCompatActivity {
 
     private static final String TAG = "CreateMealPage";
@@ -64,7 +66,7 @@ public class CreateMealPage extends AppCompatActivity {
             imageurl = "drawable/no_image.png";
         }
 
-        String[] allergies = {""};
+        ArrayList<String> allergies = new ArrayList();
 
         Log.d(TAG, "Creating meal object with all the input");
         //Use all the retrieved atributes and put them in a meal object.
