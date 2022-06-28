@@ -1,7 +1,10 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +22,9 @@ import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 import com.timothyborghouts.shareameal.logic.MealListener;
 import com.timothyborghouts.shareameal.logic.MealsAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -170,4 +176,5 @@ public class MealsPage extends AppCompatActivity implements MealListener {
         Intent intent = new Intent(this, CreateMealPage.class);
         startActivity(intent);
     }
+
 }
