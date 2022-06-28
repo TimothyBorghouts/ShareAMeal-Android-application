@@ -1,7 +1,6 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -65,30 +63,36 @@ public class MealDetailPage extends AppCompatActivity {
         Picasso.get().load(imageUrl).into(mealImage);
 
         mealTitle.setText(meal.getName());
-        mealPrice.setText(meal.getPrice());
+        mealPrice.setText("€" + meal.getPrice());
         mealDescription.setText(meal.getDescription());
         mealDate.setText(meal.getDate());
         String maxAmountOfParticipants = String.valueOf(meal.getMaxAmountOfParticipants());
         String maxPeopleText = getResources().getString(R.string.max_amount_of_participants_text);
         mealAmountOfParticipants.setText(maxPeopleText + " " + maxAmountOfParticipants);
 
-            String allergies = getResources().getString(R.string.allergies_text);
-            ArrayList<String> allergiesArray = meal.getAllergies();
-            for(String allergie: allergiesArray){
-                allergies = allergies + " " + allergie;
-            }
-            mealAllergies.setText(allergies);
+        String allergies = getResources().getString(R.string.allergies_text);
+        ArrayList<String> allergiesArray = meal.getAllergies();
+        for (String allergie : allergiesArray) {
+            allergies = allergies + " " + allergie;
+        }
+        mealAllergies.setText(allergies);
 
 
-        if(!meal.isVega()){mealIsVega.setVisibility(View.GONE);}
-        if(!meal.isVegan()){mealIsVegan.setVisibility(View.GONE);}
-        if(!meal.isToTakeHome()){mealIsToTakeHome.setVisibility(View.GONE);}
+        if (!meal.isVega()) {
+            mealIsVega.setVisibility(View.GONE);
+        }
+        if (!meal.isVegan()) {
+            mealIsVegan.setVisibility(View.GONE);
+        }
+        if (!meal.isToTakeHome()) {
+            mealIsToTakeHome.setVisibility(View.GONE);
+        }
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.settings_menu,menu);
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

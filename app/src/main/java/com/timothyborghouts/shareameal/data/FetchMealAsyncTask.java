@@ -17,7 +17,9 @@ public class FetchMealAsyncTask extends AsyncTask<Void, Void, String> {
 
     private DatasetListener listener;
 
-    public FetchMealAsyncTask(DatasetListener listener) {this.listener = listener;}
+    public FetchMealAsyncTask(DatasetListener listener) {
+        this.listener = listener;
+    }
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -51,7 +53,7 @@ public class FetchMealAsyncTask extends AsyncTask<Void, Void, String> {
 
 
             Log.d(TAG, "" + jsonArray.length());
-            while(i < jsonArray.length() - 32){
+            while (i < jsonArray.length() - 32) {
 
                 JSONObject meal = jsonArray.getJSONObject(i);
 
@@ -68,11 +70,11 @@ public class FetchMealAsyncTask extends AsyncTask<Void, Void, String> {
                     maxAmountOfParticipants = meal.getInt("maxAmountOfParticipants");
                     price = meal.getString("price");
                     imageUrl = meal.getString("imageUrl");
-                  allergies = meal.getJSONArray("allergenes");
+                    allergies = meal.getJSONArray("allergenes");
 
-                    if (allergies != null){
+                    if (allergies != null) {
                         allergenes = new ArrayList<>();
-                        for (int x = 0; x < allergies.length(); x++){
+                        for (int x = 0; x < allergies.length(); x++) {
                             allergenes.add(allergies.getString(x));
                         }
                     }
@@ -83,7 +85,7 @@ public class FetchMealAsyncTask extends AsyncTask<Void, Void, String> {
 
                     listener.addMeal(newMeal);
 
-                } catch (Exception exception){
+                } catch (Exception exception) {
                     exception.printStackTrace();
                 }
 

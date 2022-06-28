@@ -10,53 +10,36 @@
 
     <TextView
         android:id="@+id/loginPageTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30sp"
-        android:padding="10dp"
-        android:text="@string/login_welcome_title"
-        android:textAlignment="center"
-        android:textColor="@color/primaryColor"
-        android:textSize="40sp"
-        android:textStyle="bold" />
+        style="@style/title_styling"
+        android:layout_marginBottom="20dp"
+        android:text="@string/login_welcome_title" />
 
     <EditText
         android:id="@+id/emailInputField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/input_fields_styling"
         android:layout_marginBottom="10sp"
-        android:backgroundTint="@color/textColor"
         android:drawableStart="@drawable/icon_email"
         android:drawablePadding="10dp"
-        android:ems="12"
         android:hint="@string/email_input_hint"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/textColor" />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/passwordInputField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/input_fields_styling"
         android:layout_marginBottom="50sp"
         android:backgroundTint="@color/textColor"
         android:drawableStart="@drawable/icon_lock"
         android:drawablePadding="10dp"
-        android:ems="12"
         android:hint="@string/password_input_hint"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textColorHint="@color/textColor" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/button_styling"
         android:width="250dp"
         android:height="55dp"
-        android:background="@drawable/button_background"
-        android:backgroundTint="@color/primaryColor"
-        android:text="@string/login_button_text"
-        android:textColor="@color/white" />
+        android:text="@string/login_button_text" />
 
 </LinearLayout>

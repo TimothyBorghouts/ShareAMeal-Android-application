@@ -10,18 +10,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp">
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/meal_image"
-                android:layout_width="270dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxHeight="225dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/no_image" />
 
@@ -37,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/textColor"
-                    android:textSize="25sp" />
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/meal_price"
@@ -48,15 +49,6 @@
                     android:textSize="20sp" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/meal_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/textColor"
-                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -74,10 +66,18 @@
                 android:textColor="@color/textColor"
                 android:textSize="15sp" />
 
+            <TextView
+                android:id="@+id/meal_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/textColor"
+                android:textSize="15sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -113,9 +113,9 @@
 
                 <TextView
                     android:id="@+id/meal_is_to_take_home"
-                    android:layout_marginStart="50dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
                     android:text="@string/take_home_text"
                     android:textColor="@color/textColor"
                     android:textSize="14sp" />
@@ -129,27 +129,27 @@
 
             </LinearLayout>
 
-                <TextView
-                    android:id="@+id/meal_max_amount_of_participants"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:textColor="@color/textColor"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/meal_date" />
+            <TextView
+                android:id="@+id/meal_max_amount_of_participants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meal_date" />
 
-                <TextView
-                    android:id="@+id/meal_allergies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:textColor="@color/textColor"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/meal_date" />
+            <TextView
+                android:id="@+id/meal_allergies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meal_date" />
 
         </LinearLayout>
 

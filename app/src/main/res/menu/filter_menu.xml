@@ -4,29 +4,29 @@
 
     <item
         android:id="@+id/filter"
-        android:title="Filter"
         android:icon="@drawable/icon_filter"
+        android:title="Filter"
         app:showAsAction="always">
 
         <menu>
             <item
                 android:id="@+id/filter_vega"
                 android:title="@string/vega_text"
-                app:showAsAction="always"/>
+                app:showAsAction="always" />
 
             <item
                 android:id="@+id/filter_vegan"
                 android:title="@string/vegan_text"
-                app:showAsAction="always"/>
+                app:showAsAction="always" />
 
             <item
                 android:id="@+id/filter_take_home"
                 android:title="@string/take_home_text"
-                app:showAsAction="always"/>
+                app:showAsAction="always" />
             <item
                 android:id="@+id/filter_remove"
                 android:title="Remove filter"
-                app:showAsAction="always"/>
+                app:showAsAction="always" />
         </menu>
 
     </item>

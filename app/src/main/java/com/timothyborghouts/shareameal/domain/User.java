@@ -36,8 +36,7 @@ public class User {
     public String getCity() {
         return city;
     }
-
-
+    
     public boolean getIsActive() {
         return isActive;
     }

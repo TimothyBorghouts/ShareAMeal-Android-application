@@ -1,10 +1,8 @@
 package com.timothyborghouts.shareameal.presentation;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +12,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
@@ -62,7 +59,7 @@ public class CreateMealPage extends AppCompatActivity {
         String price = priceInputField.getText().toString();
 
         String imageurl = imageUrlInputField.getText().toString();
-        if(imageurl.length() < 1){
+        if (imageurl.length() < 1) {
             imageurl = "drawable/no_image.png";
         }
 
@@ -77,7 +74,7 @@ public class CreateMealPage extends AppCompatActivity {
 
     }
 
-    public void addMealAndGoBack(Meal meal){
+    public void addMealAndGoBack(Meal meal) {
         Intent intent = new Intent(this, MealsPage.class);
         intent.putExtra("Meal", meal);
         startActivity(intent);
@@ -86,7 +83,7 @@ public class CreateMealPage extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "Go back to the meals page and send the meal with it. (Close activity)");
-        getMenuInflater().inflate(R.menu.settings_menu,menu);
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

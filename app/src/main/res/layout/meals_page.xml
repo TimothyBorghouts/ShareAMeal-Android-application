@@ -20,9 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-250px"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="goToCreateMealPage"
         app:backgroundTint="@color/primaryColor"
-        app:srcCompat="@drawable/icon_add"
-        android:focusable="true" />
+        app:srcCompat="@drawable/icon_add" />
 
 </LinearLayout>

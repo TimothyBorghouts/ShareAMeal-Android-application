@@ -1,7 +1,6 @@
 package com.timothyborghouts.shareameal.logic;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.timothyborghouts.shareameal.R;
 import com.timothyborghouts.shareameal.domain.Meal;
 
 import com.squareup.picasso.Picasso;
-import com.timothyborghouts.shareameal.presentation.MealDetailPage;
 
 import java.util.ArrayList;
 
@@ -49,13 +46,13 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
     public void onBindViewHolder(@NonNull MealsAdapter.MealViewHolder holder, int position) {
         Meal meal = this.meals.get(position);
 
-        try{
+        try {
             Picasso.get().load(meals.get(position).getImageUrl()).into(holder.image);
-        }catch(Exception e){
+        } catch (Exception e) {
         }
         holder.title.setText(meal.getName());
         holder.date.setText(meal.getDate());
-        holder.price.setText(meal.getPrice());
+        holder.price.setText("€" + meal.getPrice());
     }
 
     @Override
@@ -81,7 +78,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
         }
 
 
-        public void onClick(View view){
+        public void onClick(View view) {
             Log.d(TAG, "Clicked on a meal and going to that specific meal detail page");
             int itemIndex = getLayoutPosition();
 

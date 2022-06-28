@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URL;
 
 public class NetworkUtils {
@@ -16,7 +15,7 @@ public class NetworkUtils {
 
     private static final String MEAL_URL = "https://shareameal-api.herokuapp.com/api/meal";
 
-    static String getMeal(){
+    static String getMeal() {
         Log.d(TAG, "Starting NetworkUtils method getMeal()");
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -38,12 +37,12 @@ public class NetworkUtils {
 
             String line;
 
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 builder.append(line);
                 builder.append("\n");
             }
 
-            if (builder.length() == 0 ) {
+            if (builder.length() == 0) {
                 Log.d(TAG, "Failed to retrieve JSON data.");
                 return null;
             }
@@ -54,10 +53,10 @@ public class NetworkUtils {
             exception.printStackTrace();
         } finally {
             Log.d(TAG, "Closing connection and reader if not already closed");
-            if(urlConnection != null) {
+            if (urlConnection != null) {
                 urlConnection.disconnect();
             }
-            if(reader != null){
+            if (reader != null) {
                 try {
                     reader.close();
                 } catch (Exception exception) {

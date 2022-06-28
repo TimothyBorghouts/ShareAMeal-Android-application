@@ -2,7 +2,6 @@ package com.timothyborghouts.shareameal.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Meal implements Serializable {
     private String name;
@@ -39,9 +38,7 @@ public class Meal implements Serializable {
         return description;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
+    public boolean isActive() { return isActive; }
 
     public boolean isVega() {
         return isVega;

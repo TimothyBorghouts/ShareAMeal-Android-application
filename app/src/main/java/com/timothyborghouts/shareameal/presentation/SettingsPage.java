@@ -49,7 +49,7 @@ public class SettingsPage extends AppCompatActivity {
         setSettings();
 
         //Save all the changed settings when save settings button is clicked.
-        saveButton.setOnClickListener(new View.OnClickListener(){
+        saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Clicked save settings button");
@@ -64,7 +64,8 @@ public class SettingsPage extends AppCompatActivity {
         });
 
     }
-    public void setSettings(){
+
+    public void setSettings() {
         //Check if darkMode is on or on or off and set the checkBox the correct way.
         Boolean selectedDarkModeSetting = darkModeSharedPreferences.getBoolean("selectedDarkMode", false);
         darkModeCheckBox.setChecked(selectedDarkModeSetting);
@@ -74,15 +75,15 @@ public class SettingsPage extends AppCompatActivity {
         languageSpinner.setSelection(selectedLanguageSetting);
     }
 
-    public void darkModeSettings(){
+    public void darkModeSettings() {
         SharedPreferences.Editor editorDarkMode = darkModeSharedPreferences.edit();
         //Check Checkbox and set the dark mode on or off.
-        if(darkModeCheckBox.isChecked()){
+        if (darkModeCheckBox.isChecked()) {
             Log.d(TAG, "Turn night mode on");
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             editorDarkMode.putBoolean("selectedDarkMode", true);
             editorDarkMode.commit();
-        }else{
+        } else {
             Log.d(TAG, "Turn night mode off");
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             editorDarkMode.putBoolean("selectedDarkMode", false);
@@ -94,11 +95,11 @@ public class SettingsPage extends AppCompatActivity {
         SharedPreferences.Editor editor = languageSharedPreferences.edit();
         //Check the selected language in spinner and change the language.
         int inputLanguage = languageSpinner.getSelectedItemPosition();
-        if(inputLanguage == 0) {
-                setLanguage("en");
-                editor.putInt("selectedLanguage", 0);
-                editor.commit();
-        }else {
+        if (inputLanguage == 0) {
+            setLanguage("en");
+            editor.putInt("selectedLanguage", 0);
+            editor.commit();
+        } else {
             setLanguage("nl");
             editor.putInt("selectedDarkMode", 1);
             editor.commit();

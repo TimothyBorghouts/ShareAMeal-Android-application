@@ -17,38 +17,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:maxHeight="280dp"
             android:src="@drawable/no_image" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/meal_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="20dp"
+            android:textColor="@color/textColor"
+            android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/meal_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/textColor"
-                android:textSize="25sp" />
+        <TextView
+            android:id="@+id/meal_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="13dp"
+            android:textColor="@color/textColor"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/meal_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:textColor="@color/textColor"
-                android:textSize="20sp" />
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/meal_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/textColor"
             android:textSize="15sp" />
 
@@ -57,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/textColor"
             android:textSize="15sp" />
 
@@ -65,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <TextView
@@ -137,8 +133,8 @@
             android:id="@+id/meal_max_amount_of_participants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/textColor"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -149,8 +145,8 @@
             android:id="@+id/meal_allergies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
             android:textColor="@color/textColor"
             android:textSize="15sp"
