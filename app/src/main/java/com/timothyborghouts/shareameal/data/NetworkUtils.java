@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -15,7 +14,7 @@ public class NetworkUtils {
     private static final String MAX_RESULTS = "maxResults";
     private static final String PRINT_TYPE = "printType";
 
-    static String getMeal(String queryString){
+    static String getMeal(){
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         String MealJSONString = null;
