@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,8 +33,11 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
     ArrayList<Meal> meals = new ArrayList<>();
     ArrayList<Meal> filteredMeals = new ArrayList<>();
     ArrayList<Meal> savedMeals = new ArrayList<>();
+
     RecyclerView mealsRecyclerView;
     MealsAdapter mealsAdapter;
+
+    SharedPreferences filterSharedPreferences;
 
     public static final String clickedMeal = "Meal";
 
@@ -70,8 +75,7 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
     }
 
     public void printItemCount() {
-        Toast toast = Toast.makeText(getApplicationContext(), "Loaded " + mealsAdapter.getItemCount() + " meals", Toast.LENGTH_SHORT);
-        toast.show();
+        Toast.makeText(getApplicationContext(), "Loaded " + mealsAdapter.getItemCount() + " meals", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -92,40 +96,40 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
                 break;
 
             case R.id.filter_vega:
-                Log.d(TAG, "Filtering all meals on vega");
                 filterMeals(1);
-                mealsAdapter.notifyDataSetChanged();
-                printItemCount();
+                saveFilter(1);
                 break;
 
             case R.id.filter_vegan:
-                Log.d(TAG, "Filtering all meals on vegan");
                 filterMeals(2);
-                mealsAdapter.notifyDataSetChanged();
-                printItemCount();
+                saveFilter(2);
                 break;
 
             case R.id.filter_take_home:
-                Log.d(TAG, "Filtering all meals on take home");
                 filterMeals(3);
-                mealsAdapter.notifyDataSetChanged();
-                printItemCount();
+                saveFilter(3);
                 break;
             case R.id.filter_remove:
-                this.meals.clear();
-                this.filteredMeals.clear();
-                this.meals.addAll(savedMeals);
-                Log.d(TAG, "Removed all filters.");
-                mealsAdapter.notifyDataSetChanged();
-                printItemCount();
+                removeFilter();
+                saveFilter(0);
                 break;
+            default:
+                printItemCount();
+                mealsAdapter.notifyDataSetChanged();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    private void removeFilter() {
+        this.meals.clear();
+        this.meals.addAll(savedMeals);
+        Log.d(TAG, "Removed all filters.");
+    }
+
     public void filterMeals(int filter) {
-        for (Meal meal : meals) {
+        Log.d(TAG, "Filtering all meals");
+        for (Meal meal : savedMeals) {
             switch (filter) {
                 case 1:
                     if (meal.isVega()) {
@@ -145,7 +149,6 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
                     }
                     break;
             }
-
         }
 
         meals.clear();
@@ -177,7 +180,39 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
     public void datasetUpdated() {
         this.mealsAdapter.notifyDataSetChanged();
         this.savedMeals.addAll(meals);
+        loadFilter();
         Log.d(TAG, "Toast the amount of meals loaded");
         printItemCount();
+    }
+
+    public void saveFilter(int selectedFilter) {
+
+        SharedPreferences.Editor editor = filterSharedPreferences.edit();
+        editor.putInt("filter", selectedFilter);
+
+        editor.apply();
+    }
+
+    public void loadFilter() {
+        filterSharedPreferences = getSharedPreferences("filter", Context.MODE_PRIVATE);
+
+        int savedFilter = filterSharedPreferences.getInt("filter", 0);
+        switch (savedFilter) {
+            case 0:
+                removeFilter();
+                break;
+
+            case 1:
+                filterMeals(1);
+                break;
+
+            case 2:
+                filterMeals(2);
+                break;
+
+            case 3:
+                filterMeals(3);
+                break;
+        }
     }
 }
