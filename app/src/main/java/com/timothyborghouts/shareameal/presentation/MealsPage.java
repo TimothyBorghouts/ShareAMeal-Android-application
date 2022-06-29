@@ -34,8 +34,6 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
     RecyclerView mealsRecyclerView;
     MealsAdapter mealsAdapter;
 
-    boolean didFilterOnce = false;
-
     public static final String clickedMeal = "Meal";
 
     @Override
@@ -48,8 +46,6 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
         getSupportActionBar().setTitle(actionBarTitle);
 
         new FetchMealAsyncTask(this).execute();
-
-        savedMeals.addAll(meals);
 
         //If meals were added with create page add them to the list
         Log.d(TAG, "Check if a meal was added");
@@ -116,8 +112,9 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
                 printItemCount();
                 break;
             case R.id.filter_remove:
-                meals.clear();
-                meals.addAll(savedMeals);
+                this.meals.clear();
+                this.filteredMeals.clear();
+                this.meals.addAll(savedMeals);
                 Log.d(TAG, "Removed all filters.");
                 mealsAdapter.notifyDataSetChanged();
                 printItemCount();
@@ -150,10 +147,9 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
             }
 
         }
+
         meals.clear();
         meals.addAll(filteredMeals);
-
-        didFilterOnce = true;
 
         filteredMeals.clear();
     }
@@ -175,12 +171,12 @@ public class MealsPage extends AppCompatActivity implements MealListener, Datase
     public void addMeal(Meal meal) {
         Log.d(TAG, "" + meal);
         this.meals.add(meal);
-        this.savedMeals.addAll(meals);
     }
 
     @Override
     public void datasetUpdated() {
         this.mealsAdapter.notifyDataSetChanged();
+        this.savedMeals.addAll(meals);
         Log.d(TAG, "Toast the amount of meals loaded");
         printItemCount();
     }

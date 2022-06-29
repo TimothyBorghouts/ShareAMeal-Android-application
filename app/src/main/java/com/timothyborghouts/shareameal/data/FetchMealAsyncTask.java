@@ -53,7 +53,7 @@ public class FetchMealAsyncTask extends AsyncTask<Void, Void, String> {
 
 
             Log.d(TAG, "" + jsonArray.length());
-            while (i < jsonArray.length() - 32) {
+            while (i < jsonArray.length() - 36) {
 
                 JSONObject meal = jsonArray.getJSONObject(i);
 

@@ -1,6 +1,7 @@
 package com.timothyborghouts.shareameal.logic;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,13 +44,29 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MealsAdapter.MealViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MealViewHolder holder, int position) {
         Meal meal = this.meals.get(position);
 
-        try {
-            Picasso.get().load(meals.get(position).getImageUrl()).into(holder.image);
-        } catch (Exception e) {
+        //Check if a image is given and then set a basic umage or the given image.
+
+        if(meal.getImageUrl() == null && meal.getImageUrl().isEmpty()){
+
+            try {
+                Picasso.get().load("https://www.salonlfc.com/en/image-not-found/").into(holder.image);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+
+            try {
+                Picasso.get().load(meals.get(position).getImageUrl()).into(holder.image);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
+
         holder.title.setText(meal.getName());
         holder.date.setText(meal.getDate());
         holder.price.setText("€" + meal.getPrice());

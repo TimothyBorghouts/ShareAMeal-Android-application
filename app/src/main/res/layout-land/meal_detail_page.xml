@@ -23,8 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxHeight="225dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/no_image" />
+                android:adjustViewBounds="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/textColor"
-                    android:textSize="22sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/meal_price"
